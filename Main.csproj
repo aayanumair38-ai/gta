@@ -1,0 +1,11 @@
+<Project Sdk="Godot.NET.Sdk/4.1.0">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ProjectGuid>{B9DB64A0-1234-5678-9ABC-DEF012345678}</ProjectGuid>
+    <RootNamespace>GTA</RootNamespace>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Godot" Version="4.1.0" />
+  </ItemGroup>
+</Project>

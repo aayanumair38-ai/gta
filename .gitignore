@@ -1,0 +1,33 @@
+# Godot-specific files
+.godot/
+*.godot
+project.godot.tmp
+
+# C# specific
+bin/
+obj/
+*.csproj.user
+*.csproj.swp
+
+# IDE
+.vs/
+.vscode/
+*.swp
+*.swo
+*.swn
+.DS_Store
+
+# Build outputs
+*.exe
+*.so
+*.dylib
+*.x86_64
+
+# Editor temp files
+.#*
+*~
+*.bak
+
+# OS
+Thumbs.db
+desktop.ini

@@ -1,0 +1,24 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are read-only and conditions
+; are not met if edited manually.
+; Format: GDScript; Use `make --version` to check your `make` version
+; Format: marshal uint64 index
+
+config_version=5
+
+[application]
+
+config/name="GTA 3D Game"
+config/version="0.1.0"
+config/tags=PackedStringArray("game", "3d", "action")
+config/windows_native_icon=""
+
+[physics]
+
+3d/physics_engine="GodotPhysics3D"
+
+[rendering]
+
+rendering/renderer/rendering_method="forward_plus"
+rendering/textures/default_filters/use_nearest_mipmap_filter=false
