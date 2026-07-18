@@ -1,0 +1,99 @@
+[gd_scene load_steps=6 format=3 uid="uid://c6nhjw46v9k7u9x4xdfl"]
+
+[ext_resource type="Script" path="res://src/world/World.cs" id="1_ax3g7"]
+[ext_resource type="Script" path="res://src/npc/NPCManager.cs" id="2_ny5j8"]
+[ext_resource type="PackedScene" uid="uid://bkkq4rbcl7ctqab3xnw" path="res://scenes/Player.tscn" id="3_j8qh4"]
+[ext_resource type="Script" path="res://src/ui/HUD.cs" id="4_p0qb5"]
+[ext_resource type="Script" path="res://src/ui/PauseMenu.cs" id="5_pm9c6"]
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = Environment.new()
+light_probe_enabled = false
+reflection_probe_enabled = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707, 0.707, 0, -0.707, 0.707, 0, 20, 0)
+shadow_enabled = true
+
+[node name="World" type="Node3D" parent="."]
+script = ExtResource("1_ax3g7")
+
+[node name="NPCManager" type="Node3D" parent="World"]
+script = ExtResource("2_ny5j8")
+NPCCount = 5
+SpawnRadius = 30.0
+
+[node name="Player" parent="." instance=ExtResource("3_j8qh4")]
+position = (0, 2, 0)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_p0qb5")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer"]
+margin_right = 150.0
+margin_bottom = 120.0
+
+[node name="HealthLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
+text = "Health: 100/100"
+
+[node name="AmmoLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
+text = "Ammo: 30/30"
+
+[node name="SpeedLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
+text = "Speed: 0.0 m/s"
+
+[node name="FPSLabel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
+text = "FPS: 60"
+
+[node name="HealthBar" type="ProgressBar" parent="HUD/MarginContainer/VBoxContainer"]
+value = 100.0
+
+[node name="AmmoBar" type="TextureProgressBar" parent="HUD/MarginContainer/VBoxContainer"]
+value = 100.0
+
+[node name="CenterContainer" type="CenterContainer" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Crosshair" type="Label" parent="HUD/CenterContainer"]
+text = "+"
+font_size = 30
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("5_pm9c6")
+
+[node name="PausePanel" type="Panel" parent="PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PausePanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Title" type="Label" parent="PauseMenu/PausePanel/VBoxContainer"]
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/PausePanel/VBoxContainer"]
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="PauseMenu/PausePanel/VBoxContainer"]
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/PausePanel/VBoxContainer"]
+text = "Quit to Menu"

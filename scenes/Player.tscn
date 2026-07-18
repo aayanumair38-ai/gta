@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkkq4rbcl7ctqab3xnw"]
+
+[ext_resource type="Script" path="res://src/player/Player.cs" id="1_cvh2e"]
+[ext_resource type="Script" path="res://src/gameplay/Combat.cs" id="2_bz0ml"]
+
+[sub_resource type="CapsuleShape3D" id="1"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_cvh2e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("1")
+
+[node name="Head" type="Node3D" parent="."]
+position = (0, 0.6, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="Combat" type="Node3D" parent="."]
+script = ExtResource("2_bz0ml")

@@ -1,0 +1,12 @@
+[gd_resource type="InputMap" format=3 uid="uid://dj1vwv4ueqm8e2po"]
+
+[resource]
+actions = [
+  { "action": "fire", "events": [Object(InputEventMouseButton, {"button_index": 1})] },
+  { "action": "reload", "events": [Object(InputEventKey, {"keycode": 82})] },
+  { "action": "weapon_1", "events": [Object(InputEventKey, {"keycode": 49})] },
+  { "action": "weapon_2", "events": [Object(InputEventKey, {"keycode": 50})] },
+  { "action": "weapon_3", "events": [Object(InputEventKey, {"keycode": 51})] },
+  { "action": "pause", "events": [Object(InputEventKey, {"keycode": 4194305})] },
+  { "action": "interact", "events": [Object(InputEventKey, {"keycode": 69})] }
+]
